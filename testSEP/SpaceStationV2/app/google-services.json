@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "756775993786",
+    "firebase_url": "https://spacestationv2-f7433.firebaseio.com",
+    "project_id": "spacestationv2-f7433",
+    "storage_bucket": "spacestationv2-f7433.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:756775993786:android:261c812677564071319d83",
+        "android_client_info": {
+          "package_name": "com.example.handinv1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "756775993786-6l7s7ootdq3supfacll0uo1hi36s7kvf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.handinv1",
+            "certificate_hash": "a5556a0cd23fd93edf1e25be13ee6a043ee0efe7"
+          }
+        },
+        {
+          "client_id": "756775993786-ibk5ija9j5cof8ut9a56htcrnnre5p59.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2VfxIGS90SNt08L3_1WoiaVQOnKqa2-M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "756775993786-ibk5ija9j5cof8ut9a56htcrnnre5p59.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
