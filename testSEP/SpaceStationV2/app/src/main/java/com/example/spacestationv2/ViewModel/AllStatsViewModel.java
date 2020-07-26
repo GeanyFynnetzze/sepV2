@@ -6,17 +6,20 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
+
 import com.example.spacestationv2.Database.AllStatsRepositoryData;
 import com.example.spacestationv2.Database.AllStatsEntity;
 
 
+import com.example.spacestationv2.Model.AllStats;
 import com.example.spacestationv2.Model.RepositoryAllStats;
 
 import java.util.List;
 
 
 public class AllStatsViewModel extends AndroidViewModel {
-    private MutableLiveData<List<AllStatsEntity>> mutableLiveData;
+    private MutableLiveData<List<AllStats>> mutableLiveData;
     private AllStatsRepositoryData repositoryData;
     private RepositoryAllStats repositoryAllStats;
     private LiveData<List<AllStatsEntity>> allStats;
@@ -26,6 +29,8 @@ public class AllStatsViewModel extends AndroidViewModel {
         repositoryData = new AllStatsRepositoryData(application);
         allStats= repositoryData.getAllStats();
     }
+
+
 
     public void init() {
         if (mutableLiveData != null) {
@@ -46,7 +51,7 @@ public class AllStatsViewModel extends AndroidViewModel {
         return  allStats;
     }
 
-    public LiveData<List<AllStatsEntity>> getAllStatsRepo() {
+    public LiveData<List<AllStats>> getAllStatsRepo() {
         return mutableLiveData;
     }
 

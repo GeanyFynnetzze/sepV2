@@ -48,11 +48,11 @@ public class RepositoryAllStats {
         myDateObj = LocalDateTime.now();
     }
 
-    public MutableLiveData<List<AllStatsEntity>> getAllStats() {
-        final MutableLiveData<List<AllStatsEntity>> allStatsData = new MutableLiveData<>();
-        api.getAllStats().enqueue(new Callback<List<AllStatsEntity>>() {
+    public MutableLiveData<List<AllStats>> getAllStats() {
+        final MutableLiveData<List<AllStats>> allStatsData = new MutableLiveData<>();
+        api.getAllStats().enqueue(new Callback<List<AllStats>>() {
             @Override
-            public void onResponse(Call<List<AllStatsEntity>> call, Response<List<AllStatsEntity>> response) {
+            public void onResponse(Call<List<AllStats>> call, Response<List<AllStats>> response) {
                 Log.d("AllStatsFragment", "Status Code = " + response.code());
                 if (response.isSuccessful()) {
                     allStatsData.setValue(response.body());
@@ -61,7 +61,7 @@ public class RepositoryAllStats {
             }
 
             @Override
-            public void onFailure(Call<List<AllStatsEntity>> call, Throwable t) {
+            public void onFailure(Call<List<AllStats>> call, Throwable t) {
 
                 System.out.println(t.getMessage());
 

@@ -25,7 +25,7 @@ public interface Api {
                                            @Query("type") String type);
 
     @GET("data")
-    Call<List<AllStatsEntity>> getAllStats();
+    Call<List<AllStats>> getAllStats();
 
     @POST("data/SetServo")
     Call<Servo> createPost(
