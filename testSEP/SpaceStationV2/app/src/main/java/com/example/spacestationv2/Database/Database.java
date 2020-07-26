@@ -11,7 +11,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.example.spacestationv2.Model.Humidity;
 import com.example.spacestationv2.Model.Temperature;
 
-@androidx.room.Database(entities = {CO2Entity.class, HumidityEntity.class, TemperatureEntity.class, AllStatsEntity.class}, version = 3)
+@androidx.room.Database(entities = {CO2Entity.class, HumidityEntity.class, TemperatureEntity.class, AllStatsEntity.class}, version = 4)
 public abstract class Database extends RoomDatabase{
 
     private static Database instance;
@@ -62,8 +62,10 @@ public abstract class Database extends RoomDatabase{
         @Override
         protected Void doInBackground(Void... voids) {
         co2DAO.insert(new CO2Entity(1,25.32f,"27-11-2020"));
-            co2DAO.insert(new CO2Entity(2,26.32f,"28-11-2020"));
+            co2DAO.insert(new CO2Entity(1,26.32f,"28-11-2020"));
             co2DAO.insert(new CO2Entity(3,298.32f,"30-11-2020"));
+            co2DAO.insert(new CO2Entity(3,298.32f,"30-11-2020"));
+            co2DAO.insert(new CO2Entity(4,298.32f,"30-11-2020"));
 
 
 

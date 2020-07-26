@@ -3,6 +3,7 @@ package com.example.spacestationv2.Database;
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
 public interface CO2DAO {
 
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(CO2Entity co2Entity);
 
     @Query("SELECT * FROM CO2_table")

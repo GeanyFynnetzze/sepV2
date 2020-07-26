@@ -5,8 +5,9 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName = "AllStats_table")
 public class AllStatsEntity {
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey(autoGenerate = false)
     public int huM_ID;
+
     public int cO2_ID;
     public int temP_ID;
     public String date;

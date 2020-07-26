@@ -8,7 +8,7 @@ public class CO2Entity {
 
 
 
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey(autoGenerate = false)
         private int CO2_ID;
 
         private float CO2_value;
