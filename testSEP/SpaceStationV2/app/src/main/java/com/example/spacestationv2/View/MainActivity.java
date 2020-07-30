@@ -50,21 +50,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_allStats:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new AllStatsFragment()).commit();
+                drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.nav_co2:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new Co2Fragment()).commit();
-                break;
-            case R.id.nav_temperature:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new TemperatureFragment()).commit();
+                drawerLayout.closeDrawer(GravityCompat.START);
                 break;
             case R.id.nav_humidity:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new HumidityFragment()).commit();
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
-
             case R.id.logout:
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(getApplicationContext(), Login.class));

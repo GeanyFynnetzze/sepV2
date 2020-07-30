@@ -32,12 +32,26 @@ public class AllStatsViewModel extends AndroidViewModel {
 
 
 
-    public void init() {
+    public void initLivingRoom() {
         if (mutableLiveData != null) {
             return;
         }
         repositoryAllStats = RepositoryAllStats.getInstance();
-        mutableLiveData = repositoryAllStats.getAllStats();
+        mutableLiveData = repositoryAllStats.getLivingRoom();
+    }
+    public void initToilet() {
+        if (mutableLiveData != null) {
+            return;
+        }
+        repositoryAllStats = RepositoryAllStats.getInstance();
+        mutableLiveData = repositoryAllStats.getToilet();
+    }
+    public void initKitchen() {
+        if (mutableLiveData != null) {
+            return;
+        }
+        repositoryAllStats = RepositoryAllStats.getInstance();
+        mutableLiveData = repositoryAllStats.getKitchen();
     }
 
     public void insert(AllStatsEntity allStats)

@@ -1,30 +1,26 @@
 package com.example.spacestationv2.View;
+
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 
-import com.example.spacestationv2.Model.Api;
-import com.example.spacestationv2.Model.CO2;
-import com.example.spacestationv2.Model.Humidity;
-import com.example.spacestationv2.Model.RecycleAdapter;
-import com.example.spacestationv2.Model.RecycleHumidity;
-import com.example.spacestationv2.Model.Repository;
-import com.example.spacestationv2.Model.RepositoryHumidity;
+import com.example.spacestationv2.Database.AllStatsEntity;
+import com.example.spacestationv2.Model.AllStats;
+import com.example.spacestationv2.Model.RecycleAdapterAllStats;
 import com.example.spacestationv2.R;
-import com.example.spacestationv2.ViewModel.Co2ViewModel;
-import com.example.spacestationv2.ViewModel.HumidityViewModel;
-import com.google.gson.Gson;
+import com.example.spacestationv2.ViewModel.AllStatsViewModel;
 
-import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
+
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,14 +29,11 @@ import androidx.recyclerview.widget.RecyclerView;
 public class HumidityFragment extends Fragment {
 
 
-    private HumidityViewModel humidityViewModel;
-    private RepositoryHumidity repositoryHumidity;
+    private AllStatsViewModel allStatsViewModel;
     private RecyclerView recyclerView;
-    private RecycleHumidity adapterHumidity;
+    private RecycleAdapterAllStats adapterAllStats;
     private LayoutInflater inflater;
-    private List<Humidity> humidityList;
     private RecyclerView.LayoutManager layoutManager;
-
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -49,28 +42,42 @@ public class HumidityFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_humidity, container, false);
 
-                        humidityViewModel = ViewModelProviders.of(this).get(HumidityViewModel.class);
-                        humidityViewModel.init();
-                        humidityViewModel.getHumidityRepo().observe(this, new Observer<List<Humidity>>() {
-                            @Override
-                            public void onChanged(List<Humidity> humidities) {
+        final List<AllStatsEntity> listOfEntities = new ArrayList<>();
+        allStatsViewModel = ViewModelProviders.of(this).get(AllStatsViewModel.class);
+        allStatsViewModel.initToilet();
+        allStatsViewModel.getAllStatsRepo().observe(this, new Observer<List<AllStats>>() {
+            @Override
+            public void onChanged(List<AllStats> allStats) {
 
-                                adapterHumidity.setHumidityList(humidities);
-                            }
+                for (int i = 0; i < allStats.size(); i++) {
+                    AllStatsEntity statsEntity = new AllStatsEntity(i + 1, allStats.get(i).cO2_ID,
+                            allStats.get(i).temP_ID, allStats.get(i).date, allStats.get(i).huM_value,
+                            allStats.get(i).cO2_value, allStats.get(i).temP_value);
 
 
-                        });
+                    allStatsViewModel.insert(statsEntity);
+                }
+            }
 
-                        recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview);
-                        recyclerView.setHasFixedSize(true);
-                        layoutManager = new LinearLayoutManager(getContext().getApplicationContext());
-                        recyclerView.setLayoutManager(layoutManager);
-                        adapterHumidity = new RecycleHumidity(getContext(),humidityList );
-                        recyclerView.setAdapter(adapterHumidity);
 
-                        return rootView;
-                    }
+        });
+        allStatsViewModel.getAllStatsEntities().observe(this, new Observer<List<AllStatsEntity>>() {
+            @Override
+            public void onChanged(List<AllStatsEntity> allStatsEntities) {
+                adapterAllStats.setAllStatsEntities(allStatsEntities);
+            }
+        });
+
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(getContext().getApplicationContext());
+        recyclerView.setLayoutManager(layoutManager);
+        adapterAllStats = new RecycleAdapterAllStats(getContext(), listOfEntities);
+        recyclerView.setAdapter(adapterAllStats);
+
+        return rootView;
     }
+}
 
 
 

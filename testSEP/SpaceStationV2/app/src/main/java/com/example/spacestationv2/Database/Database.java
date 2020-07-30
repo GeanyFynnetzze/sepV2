@@ -8,17 +8,12 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import com.example.spacestationv2.Model.Humidity;
-import com.example.spacestationv2.Model.Temperature;
-
-@androidx.room.Database(entities = {CO2Entity.class, HumidityEntity.class, TemperatureEntity.class, AllStatsEntity.class}, version = 4)
+@androidx.room.Database(entities = {AllStatsEntity.class}, version = 5)
 public abstract class Database extends RoomDatabase{
 
     private static Database instance;
 
-    public abstract CO2DAO co2DAO();
-    public abstract HumidityDAO humidityDAO();
-    public abstract TemperatureDAO temperatureDAO();
+
     public abstract AllStatsDAO allStatsDAO();
 
     public static synchronized Database getInstance(Context context)
@@ -46,27 +41,17 @@ public abstract class Database extends RoomDatabase{
 
     private static class PopulateDbAsyncTask extends AsyncTask<Void, Void, Void>
     {
-        private CO2DAO co2DAO;
-        private HumidityDAO humidityDAO;
-        private TemperatureDAO temperatureDAO;
+
         private AllStatsDAO allStatsDAO;
 
         private PopulateDbAsyncTask(Database db)
         {
-            co2DAO = db.co2DAO();
-            humidityDAO = db.humidityDAO();
-            temperatureDAO = db.temperatureDAO();
+
             allStatsDAO=db.allStatsDAO();
         }
 
         @Override
         protected Void doInBackground(Void... voids) {
-        co2DAO.insert(new CO2Entity(1,25.32f,"27-11-2020"));
-            co2DAO.insert(new CO2Entity(1,26.32f,"28-11-2020"));
-            co2DAO.insert(new CO2Entity(3,298.32f,"30-11-2020"));
-            co2DAO.insert(new CO2Entity(3,298.32f,"30-11-2020"));
-            co2DAO.insert(new CO2Entity(4,298.32f,"30-11-2020"));
-
 
 
             return null;

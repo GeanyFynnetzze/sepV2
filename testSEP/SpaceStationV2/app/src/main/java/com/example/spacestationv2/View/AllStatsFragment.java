@@ -48,13 +48,13 @@ public class AllStatsFragment extends Fragment {
 
         allStatsViewModel = ViewModelProviders.of(this).get(AllStatsViewModel.class);
 
-        allStatsViewModel.init();
+        allStatsViewModel.initLivingRoom();
 
             allStatsViewModel.getAllStatsRepo().observe(this, new Observer<List<AllStats>>() {
                 @Override
                 public void onChanged(List<AllStats> allStats) {
                     for (int i = 0; i < allStats.size(); i++) {
-                        AllStatsEntity statsEntity = new AllStatsEntity(allStats.get(i).huM_ID, allStats.get(i).cO2_ID,
+                        AllStatsEntity statsEntity = new AllStatsEntity(i+1, allStats.get(i).cO2_ID,
                                 allStats.get(i).temP_ID, allStats.get(i).date, allStats.get(i).huM_value,
                                 allStats.get(i).cO2_value, allStats.get(i).temP_value);
 

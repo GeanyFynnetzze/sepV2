@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.OkHttpClient;
@@ -48,24 +49,73 @@ public class RepositoryAllStats {
         myDateObj = LocalDateTime.now();
     }
 
-    public MutableLiveData<List<AllStats>> getAllStats() {
+    public MutableLiveData<List<AllStats>> getLivingRoom() {
         final MutableLiveData<List<AllStats>> allStatsData = new MutableLiveData<>();
-        api.getAllStats().enqueue(new Callback<List<AllStats>>() {
+        api.getLivingRoom().enqueue(new Callback<Rooms>() {
             @Override
-            public void onResponse(Call<List<AllStats>> call, Response<List<AllStats>> response) {
+            public void onResponse(Call<Rooms> call, Response<Rooms> response) {
                 Log.d("AllStatsFragment", "Status Code = " + response.code());
                 if (response.isSuccessful()) {
-                    allStatsData.setValue(response.body());
-                    System.out.println(response.body().get(0).getCO2_value());
+                    //Rooms rooms = response.body();
+                    ArrayList<AllStats> sensors = response.body().getSensors().get(0).getData();
+                    allStatsData.setValue(sensors);
+
                 }
             }
 
             @Override
-            public void onFailure(Call<List<AllStats>> call, Throwable t) {
+            public void onFailure(Call<Rooms> call, Throwable t) {
 
                 System.out.println(t.getMessage());
 
-                //  view.setText("error " + t.toString() + "\n" + call.request().toString());
+            }
+        });
+        return allStatsData;
+    }
+
+    public MutableLiveData<List<AllStats>> getToilet() {
+        final MutableLiveData<List<AllStats>> allStatsData = new MutableLiveData<>();
+        api.getToilet().enqueue(new Callback<Rooms>() {
+            @Override
+            public void onResponse(Call<Rooms> call, Response<Rooms> response) {
+                Log.d("AllStatsFragment", "Status Code = " + response.code());
+                if (response.isSuccessful()) {
+                    //Rooms rooms = response.body();
+                    ArrayList<AllStats> sensors = response.body().getSensors().get(0).getData();
+                    allStatsData.setValue(sensors);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Rooms> call, Throwable t) {
+
+                System.out.println(t.getMessage());
+
+            }
+        });
+        return allStatsData;
+    }
+
+    public MutableLiveData<List<AllStats>> getKitchen() {
+        final MutableLiveData<List<AllStats>> allStatsData = new MutableLiveData<>();
+        api.getKitchen().enqueue(new Callback<Rooms>() {
+            @Override
+            public void onResponse(Call<Rooms> call, Response<Rooms> response) {
+                Log.d("AllStatsFragment", "Status Code = " + response.code());
+                if (response.isSuccessful()) {
+                    //Rooms rooms = response.body();
+                    ArrayList<AllStats> sensors = response.body().getSensors().get(0).getData();
+                    allStatsData.setValue(sensors);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Rooms> call, Throwable t) {
+
+                System.out.println(t.getMessage());
+
             }
         });
         return allStatsData;

@@ -6,8 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -15,19 +13,14 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 
 
-import com.example.spacestationv2.Database.CO2Entity;
-import com.example.spacestationv2.Model.Api;
-import com.example.spacestationv2.Model.CO2;
-import com.example.spacestationv2.Model.RecycleAdapter;
-import com.example.spacestationv2.Model.Repository;
+import com.example.spacestationv2.Database.AllStatsEntity;
+import com.example.spacestationv2.Model.AllStats;
+import com.example.spacestationv2.Model.RecycleAdapterAllStats;
 import com.example.spacestationv2.R;
-import com.example.spacestationv2.ViewModel.Co2ViewModel;
-import com.google.gson.Gson;
+import com.example.spacestationv2.ViewModel.AllStatsViewModel;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -36,12 +29,10 @@ import androidx.recyclerview.widget.RecyclerView;
 public class Co2Fragment extends Fragment {
 
 
-    private Co2ViewModel co2ViewModel;
-    private Repository repository;
-    private List<CO2Entity> co2ArrayList;
+    private AllStatsViewModel allStatsViewModel;
     private RecyclerView recyclerView;
     private LayoutInflater inflater;
-    private RecycleAdapter adapter;
+    private RecycleAdapterAllStats adapter;
     private RecyclerView.LayoutManager layoutManager;
 
 
@@ -52,21 +43,36 @@ public class Co2Fragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_co2, container, false);
 
+        final List<AllStatsEntity> listOfEntities = new ArrayList<>();
 
-                co2ViewModel = ViewModelProviders.of(this).get(Co2ViewModel.class);
+                allStatsViewModel = ViewModelProviders.of(this).get(AllStatsViewModel.class);
+        allStatsViewModel.initKitchen();
 
-
-        co2ViewModel.getCo2Entities().observe(this, new Observer<List<CO2Entity>>() {
+        allStatsViewModel.getAllStatsRepo().observe(this, new Observer<List<AllStats>>() {
             @Override
-            public void onChanged(List<CO2Entity> co2Entities) {
-                adapter.setCo2List(co2Entities);
+            public void onChanged(List<AllStats> allStats) {
+                for (int i = 0; i < allStats.size(); i++) {
+                    AllStatsEntity statsEntity = new AllStatsEntity(i + 1, allStats.get(i).cO2_ID,
+                            allStats.get(i).temP_ID, allStats.get(i).date, allStats.get(i).huM_value,
+                            allStats.get(i).cO2_value, allStats.get(i).temP_value);
+
+
+                    allStatsViewModel.insert(statsEntity);
+                }
+            }
+        });
+
+        allStatsViewModel.getAllStatsEntities().observe(this, new Observer<List<AllStatsEntity>>() {
+            @Override
+            public void onChanged(List<AllStatsEntity> allStatsEntities) {
+                adapter.setAllStatsEntities(allStatsEntities);
             }
         });
         recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(getContext().getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new RecycleAdapter(getContext(), co2ArrayList);
+        adapter = new RecycleAdapterAllStats(getContext(), listOfEntities);
         recyclerView.setAdapter(adapter);
 
 
