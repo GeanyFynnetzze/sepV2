@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.spacestationv2.Autenthication.Login;
 import com.example.spacestationv2.R;
 
 public class MainMenuActivity extends AppCompatActivity {
@@ -57,6 +58,13 @@ public class MainMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openKitchen();
+            }
+        });
+
+        openLogOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Login.class));
             }
         });
     }
