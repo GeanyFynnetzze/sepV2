@@ -25,9 +25,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
 
+        Intent intent = getIntent();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-
+        String text = intent.getStringExtra(MainMenuActivity.EXTRA_TEXT);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -38,10 +39,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        if (savedInstanceState == null)
+       /* if (savedInstanceState == null)
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new LivingRoomFragment()).commit();
         navigationView.setCheckedItem(R.id.nav_livingRoom);
+
+        */
+
+       switch(text){
+           case "Livingroom":
+               getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                       new LivingRoomFragment()).commit();
+               break;
+           case "Toilet" :
+               getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                       new ToiletFragment()).commit();
+               break;
+
+           case "Kitchen" :
+               getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                       new KitchenFragment()).commit();
+               break;
+
+       }
     }
 
     @Override
@@ -76,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            startActivity(new Intent(getApplicationContext(),MainMenuActivity.class));
         }
 
     }

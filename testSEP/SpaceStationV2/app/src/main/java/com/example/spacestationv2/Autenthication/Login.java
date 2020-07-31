@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.spacestationv2.R;
 import com.example.spacestationv2.View.MainActivity;
+import com.example.spacestationv2.View.MainMenuActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -97,7 +98,7 @@ public class Login extends AppCompatActivity {
 
 
     private void loginActivity() {
-        Intent intent = new Intent(Login.this, MainActivity.class);
+        Intent intent = new Intent(Login.this, MainMenuActivity.class);
         startActivity(intent);
     }
 }
