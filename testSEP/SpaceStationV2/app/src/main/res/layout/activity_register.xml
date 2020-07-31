@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_nomanbackground"
+    android:background="@drawable/ic_login1"
     tools:context=".Autenthication.Register">
 
     <EditText
@@ -27,9 +27,9 @@
 
 
     <ImageView
-        android:layout_width="291dp"
-        android:layout_height="166dp"
-        android:src="@drawable/ic_co2icon"
+        android:layout_width="266dp"
+        android:layout_height="237dp"
+        android:src="@drawable/ic_loginimage"
         app:layout_constraintBottom_toTopOf="@+id/Email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,7 +71,7 @@
         android:layout_marginTop="96dp"
         android:fontFamily="casual"
         android:text="Already Registered? Log in then"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -79,18 +79,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Password"
         app:layout_constraintVertical_bias="0.0" />
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.258"
-        tools:visibility="invisible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

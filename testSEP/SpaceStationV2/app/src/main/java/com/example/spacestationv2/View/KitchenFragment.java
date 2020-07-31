@@ -26,7 +26,7 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class Co2Fragment extends Fragment {
+public class KitchenFragment extends Fragment {
 
 
     private AllStatsViewModel allStatsViewModel;
@@ -41,7 +41,7 @@ public class Co2Fragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_co2, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_kitchen, container, false);
 
         final List<AllStatsEntity> listOfEntities = new ArrayList<>();
 

@@ -15,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import com.example.spacestationv2.R;
-import com.example.spacestationv2.View.AllStatsFragment;
 import com.example.spacestationv2.View.MainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -39,7 +38,6 @@ public class Register extends AppCompatActivity {
         mLoginBtn=findViewById(R.id.textView4);
 
         fAuth=FirebaseAuth.getInstance();
-        progressBar=findViewById(R.id.progressBar);
 
         if(fAuth.getCurrentUser() != null)
         {
@@ -68,7 +66,7 @@ public class Register extends AppCompatActivity {
                     mPassword.setError("Password must be at least 6 Characters");
                     return;
                 }
-                progressBar.setVisibility(View.GONE);
+
 
                 //register the user
 
@@ -85,7 +83,6 @@ public class Register extends AppCompatActivity {
                         else
                         {
                             Toast.makeText(Register.this,"Error my man" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                            progressBar.setVisibility(View.GONE);
                         }
                     }
                 });

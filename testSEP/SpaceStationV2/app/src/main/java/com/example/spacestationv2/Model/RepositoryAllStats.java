@@ -43,7 +43,7 @@ public class RepositoryAllStats {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = getUnsafeOkHttpClient();
-        gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss").create();
+        gson = new GsonBuilder().setDateFormat("yyyy-MM-dd' 'HH:mm:ss").create();
         Retrofit retro = new Retrofit.Builder().baseUrl("https://datawebservice20200720021920.azurewebsites.net/api/").addConverterFactory(GsonConverterFactory.create(gson)).client(client).build();
         api = retro.create(Api.class);
         myDateObj = LocalDateTime.now();
@@ -56,7 +56,6 @@ public class RepositoryAllStats {
             public void onResponse(Call<Rooms> call, Response<Rooms> response) {
                 Log.d("AllStatsFragment", "Status Code = " + response.code());
                 if (response.isSuccessful()) {
-                    //Rooms rooms = response.body();
                     ArrayList<AllStats> sensors = response.body().getSensors().get(0).getData();
                     allStatsData.setValue(sensors);
 
@@ -113,9 +112,7 @@ public class RepositoryAllStats {
 
             @Override
             public void onFailure(Call<Rooms> call, Throwable t) {
-
                 System.out.println(t.getMessage());
-
             }
         });
         return allStatsData;

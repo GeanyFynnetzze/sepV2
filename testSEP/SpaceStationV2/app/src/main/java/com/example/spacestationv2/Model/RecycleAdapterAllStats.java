@@ -31,10 +31,10 @@ public class RecycleAdapterAllStats extends RecyclerView.Adapter<RecycleAdapterA
     public void onBindViewHolder(@NonNull RecycleAdapterAllStats.MyviewHolder holder, int position) {
         AllStatsEntity currentList = allStats.get(position);
 
-        holder.co2Image.setImageResource(R.drawable.ic_justworkco2);
-        holder.humidityValue.setText("Hum Value : " + currentList.getHuM_value());
-        holder.co2Value.setText("ValueCO2 : " + currentList.getCO2_value());
-        holder.temperatureValue.setText("Value Temp: " + currentList.getTemP_value());
+       // holder.co2Image.setImageResource(R.drawable.ic_livingroom);
+        holder.humidityValue.setText("Humidity : " + currentList.getHuM_value() + " g/m^3");
+        holder.co2Value.setText("CO2 : " + currentList.getCO2_value()+ " ppm");
+        holder.temperatureValue.setText("Temperature: " + currentList.getTemP_value()+ " °C");
         holder.allStatsDate.setText("Date : " + currentList.getDate1());
 
     }
@@ -57,7 +57,6 @@ public class RecycleAdapterAllStats extends RecyclerView.Adapter<RecycleAdapterA
     }
 
     static class MyviewHolder extends RecyclerView.ViewHolder {
-        private ImageView co2Image;
         private TextView co2Value;
         private TextView humidityValue ;
         private TextView temperatureValue;
@@ -67,11 +66,10 @@ public class RecycleAdapterAllStats extends RecyclerView.Adapter<RecycleAdapterA
 
         public MyviewHolder(View itemView) {
             super(itemView);
-            co2Image = itemView.findViewById(R.id.imageview);
             temperatureValue=itemView.findViewById(R.id.textview4);
-            humidityValue = itemView.findViewById(R.id.textview2);
-            co2Value = itemView.findViewById(R.id.textview1);
-            allStatsDate = itemView.findViewById(R.id.textview3);
+            humidityValue = itemView.findViewById(R.id.textview3);
+            co2Value = itemView.findViewById(R.id.textview2);
+            allStatsDate = itemView.findViewById(R.id.textview1);
 
         }
     }

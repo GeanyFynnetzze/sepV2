@@ -40,26 +40,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (savedInstanceState == null)
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new AllStatsFragment()).commit();
-        navigationView.setCheckedItem(R.id.nav_allStats);
+                    new LivingRoomFragment()).commit();
+        navigationView.setCheckedItem(R.id.nav_livingRoom);
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.nav_allStats:
+            case R.id.nav_livingRoom:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new AllStatsFragment()).commit();
+                        new LivingRoomFragment()).commit();
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
-            case R.id.nav_co2:
+            case R.id.nav_kitchen:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new Co2Fragment()).commit();
+                        new KitchenFragment()).commit();
                 drawerLayout.closeDrawer(GravityCompat.START);
                 break;
-            case R.id.nav_humidity:
+            case R.id.nav_toilet:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new HumidityFragment()).commit();
+                        new ToiletFragment()).commit();
                 drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
             case R.id.logout:

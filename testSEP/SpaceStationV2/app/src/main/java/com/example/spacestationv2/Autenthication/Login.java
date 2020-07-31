@@ -15,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import com.example.spacestationv2.R;
-import com.example.spacestationv2.View.AllStatsFragment;
 import com.example.spacestationv2.View.MainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -41,7 +40,6 @@ public class Login extends AppCompatActivity {
         mLoginBtn=findViewById(R.id.loginBtn);
 
         fAuth=FirebaseAuth.getInstance();
-        progressBar=findViewById(R.id.progressBar);
 
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,7 +61,7 @@ public class Login extends AppCompatActivity {
                     mPassword.setError("Password must be at least 6 Characters");
                     return;
                 }
-                progressBar.setVisibility(View.INVISIBLE);
+
 
                 //authentication for the user
 
@@ -82,7 +80,6 @@ public class Login extends AppCompatActivity {
                         else
                         {
                             Toast.makeText(Login.this,"Error my man " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                            progressBar.setVisibility(View.GONE);
                         }
                     }
                 });
