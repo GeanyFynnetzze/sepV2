@@ -50,15 +50,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
            case "Livingroom":
                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                        new LivingRoomFragment()).commit();
+               navigationView.setCheckedItem(R.id.nav_livingRoom);
                break;
            case "Toilet" :
                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                        new ToiletFragment()).commit();
+               navigationView.setCheckedItem(R.id.nav_toilet);
                break;
-
            case "Kitchen" :
                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                        new KitchenFragment()).commit();
+               navigationView.setCheckedItem(R.id.nav_kitchen);
                break;
 
        }

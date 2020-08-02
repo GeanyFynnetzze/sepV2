@@ -11,7 +11,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/background_dark"
+       android:background="@color/toolbar"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
@@ -31,22 +31,26 @@
         android:background="@drawable/ic_mainmenuhouse"/>
 
     <TextView
-        android:layout_width="150dp"
-        android:layout_height="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         app:layout_constraintBottom_toTopOf="@+id/living_room"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appCompatImageView2"
         android:text="MAIN MENU"
-        android:textSize="18dp"
+        android:textSize="30dp"
         android:textColor="@android:color/white"
         android:fontFamily="casual"
         android:textStyle="bold"
         android:textAlignment="center"/>
 
     <Button
+        android:fontFamily="casual"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:background="@drawable/state_menu"
         android:id="@+id/living_room"
-        android:layout_width="150dp"
+        android:layout_width="200dp"
         android:layout_height="50dp"
         android:text="Livingroom"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -57,8 +61,12 @@
         app:layout_constraintVertical_bias="0.152" />
 
     <Button
+        android:fontFamily="casual"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:background="@drawable/state_menu"
         android:id="@+id/toilet"
-        android:layout_width="150dp"
+        android:layout_width="200dp"
         android:layout_height="50dp"
         android:text="Toilet"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -69,8 +77,12 @@
         app:layout_constraintVertical_bias="0.10" />
 
     <Button
+        android:fontFamily="casual"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:background="@drawable/state_menu"
         android:id="@+id/kitchen"
-        android:layout_width="150dp"
+        android:layout_width="200dp"
         android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,8 +93,12 @@
         android:text="Kitchen"/>
 
     <Button
+        android:fontFamily="casual"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:background="@drawable/state_menu"
         android:id="@+id/log_out"
-        android:layout_width="150dp"
+        android:layout_width="200dp"
         android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
