@@ -63,7 +63,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Password"
         app:layout_constraintVertical_bias="0.263"
-        android:background="@drawable/auth_button_background"/>
+        android:background="@drawable/state_auth"/>
 
     <TextView
         android:id="@+id/textView4"
@@ -71,7 +71,7 @@
         android:layout_height="82dp"
         android:layout_marginTop="96dp"
         android:fontFamily="casual"
-        android:text="Already Registered? Log in then"
+        android:text="Already Registered? Log in here"
         android:textColor="@android:color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
