@@ -69,6 +69,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.nav_homepage:
+                startActivity(new Intent(getApplicationContext(),MainMenuActivity.class));
+                break;
             case R.id.nav_livingRoom:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new LivingRoomFragment()).commit();

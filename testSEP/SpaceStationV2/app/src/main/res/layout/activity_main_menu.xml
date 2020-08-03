@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_backgroundmaine"
+    android:background="@drawable/menu_background"
     tools:context="com.example.spacestationv2.View.MainMenuActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -16,7 +16,7 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         tools:ignore="MissingConstraints"
-        />
+        app:title="Home page" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/appCompatImageView2"
