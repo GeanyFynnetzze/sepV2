@@ -1,4 +1,7 @@
-package com.example.spacestationv2.Model;
+package com.example.spacestationv2.API;
+
+import com.example.spacestationv2.Model.Rooms;
+import com.example.spacestationv2.Model.Servo;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

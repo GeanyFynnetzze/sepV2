@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 //Bar Chart
 import com.example.spacestationv2.Database.AllStatsEntity;
 import com.example.spacestationv2.Model.AllStats;
-import com.example.spacestationv2.Model.RecycleAdapterAllStats;
+import com.example.spacestationv2.RecycleView.RecycleAdapterAllStats;
 import com.example.spacestationv2.Model.RepositoryAllStats;
 import com.example.spacestationv2.R;
 import com.example.spacestationv2.ViewModel.AllStatsViewModel;

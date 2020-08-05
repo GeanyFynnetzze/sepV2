@@ -1,6 +1,6 @@
-package com.example.spacestationv2.ViewModel;
+package com.example.spacestationv2.API;
 
-import com.example.spacestationv2.Model.Api;
+import com.example.spacestationv2.API.Api;
 
 import java.security.cert.CertificateException;
 
@@ -13,7 +13,6 @@ import javax.net.ssl.X509TrustManager;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RestAdapter {
 
