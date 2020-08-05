@@ -28,7 +28,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class KitchenFragment extends Fragment {
 
-
     private AllStatsViewModel allStatsViewModel;
     private RecyclerView recyclerView;
     private LayoutInflater inflater;
