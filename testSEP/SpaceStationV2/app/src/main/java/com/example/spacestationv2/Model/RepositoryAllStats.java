@@ -79,7 +79,6 @@ public class RepositoryAllStats {
             public void onResponse(Call<Rooms> call, Response<Rooms> response) {
                 Log.d("AllStatsFragment", "Status Code = " + response.code());
                 if (response.isSuccessful()) {
-                    //Rooms rooms = response.body();
                     ArrayList<AllStats> sensors = response.body().getSensors().get(0).getData();
                     allStatsData.setValue(sensors);
 
@@ -103,7 +102,6 @@ public class RepositoryAllStats {
             public void onResponse(Call<Rooms> call, Response<Rooms> response) {
                 Log.d("AllStatsFragment", "Status Code = " + response.code());
                 if (response.isSuccessful()) {
-                    //Rooms rooms = response.body();
                     ArrayList<AllStats> sensors = response.body().getSensors().get(0).getData();
                     allStatsData.setValue(sensors);
 

@@ -27,7 +27,7 @@ public class Register extends AppCompatActivity {
    Button mRegisterBtn;
    TextView mLoginBtn;
    FirebaseAuth fAuth;
-   ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,7 +82,7 @@ public class Register extends AppCompatActivity {
                         }
                         else
                         {
-                            Toast.makeText(Register.this,"Error my man" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Register.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

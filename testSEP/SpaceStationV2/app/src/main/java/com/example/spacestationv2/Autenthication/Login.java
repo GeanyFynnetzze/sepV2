@@ -28,7 +28,6 @@ public class Login extends AppCompatActivity {
     Button mLoginBtn;
     TextView mCreateBtn;
     FirebaseAuth fAuth;
-    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +71,7 @@ public class Login extends AppCompatActivity {
                         if(task.isSuccessful())
                         {
                             FirebaseUser user = fAuth.getCurrentUser();
-                            Toast.makeText(Login.this, "Logged in like a boss, as " + user.getEmail(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, "Logged in as " + user.getEmail(), Toast.LENGTH_SHORT).show();
                           //  startActivity(new Intent(getApplicationContext(), MainActivity.class));
                             if (user.isEmailVerified()) loginActivity();
                             else
@@ -80,7 +79,7 @@ public class Login extends AppCompatActivity {
                         }
                         else
                         {
-                            Toast.makeText(Login.this,"Error my man " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
