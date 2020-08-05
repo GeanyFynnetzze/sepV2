@@ -2,7 +2,6 @@ package com.example.spacestationv2.Database;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-
 @Entity(tableName = "AllStats_table")
 public class AllStatsEntity {
     @PrimaryKey(autoGenerate = false)
