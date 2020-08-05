@@ -6,14 +6,13 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
 import com.example.spacestationv2.Database.AllStatsRepositoryData;
 import com.example.spacestationv2.Database.AllStatsEntity;
 
 
 import com.example.spacestationv2.Model.AllStats;
-import com.example.spacestationv2.Model.RepositoryAllStats;
+import com.example.spacestationv2.API.RepositoryAllStats;
 
 import java.util.List;
 

@@ -1,10 +1,11 @@
-package com.example.spacestationv2.Model;
+package com.example.spacestationv2.API;
 
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.spacestationv2.API.Api;
+import com.example.spacestationv2.Model.AllStats;
+import com.example.spacestationv2.Model.Rooms;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
