@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
 
-       switch("Livingroom"){
+       switch(text){
            case "Livingroom":
                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                        new LivingRoomFragment()).commit();
