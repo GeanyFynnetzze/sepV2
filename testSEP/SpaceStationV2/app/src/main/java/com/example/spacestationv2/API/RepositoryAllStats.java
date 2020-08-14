@@ -45,9 +45,9 @@ public class RepositoryAllStats {
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = getUnsafeOkHttpClient();
         gson = new GsonBuilder().setDateFormat("yyyy-MM-dd' 'HH:mm:ss").create();
-        Retrofit retro = new Retrofit.Builder().baseUrl("https://datawebservice20200720021920.azurewebsites.net/api/").addConverterFactory(GsonConverterFactory.create(gson)).client(client).build();
+        Retrofit retro = new Retrofit.Builder().baseUrl("https://datawebservice1.azurewebsites.net/API/").
+                addConverterFactory(GsonConverterFactory.create(gson)).client(client).build();
         api = retro.create(Api.class);
-        myDateObj = LocalDateTime.now();
     }
 
     public MutableLiveData<List<AllStats>> getLivingRoom() {
