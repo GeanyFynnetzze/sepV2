@@ -11,11 +11,11 @@ import retrofit2.http.Query;
 public interface Api {
 
 
-    @GET("Rooms/1")
+    @GET("Rooms/4")
     Call<Rooms> getLivingRoom();
     @GET("Rooms/2")
     Call<Rooms> getToilet();
-    @GET("Rooms/3")
+    @GET("Rooms/1")
     Call<Rooms> getKitchen();
 
     @POST("data/SetServo")
